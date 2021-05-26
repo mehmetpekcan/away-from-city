@@ -3,27 +3,41 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour {
-    private int currentCharge;
 
-    public Texture2D[] hudChargeGUIs;
-    public UnityEngine.UI.RawImage activeHudCharge; 
+    public static Inventory instance;
+    void Awake()
+    {
+        instance = this;
+    }
+    public List<Item> items = new List<Item>();
+    public int space = 10;
 
-    public AudioClip cellPickupSound;
-    
-    void Start() {
-        currentCharge = 0;
-        UpdateChargeGUI();
+
+    //creating call back method for listenening any changes for updateing gui;
+    public delegate void ItemisChanged();
+    public ItemisChanged ItemisChangedCallback;
+
+
+    public bool Add (Item item)
+    {
+        if (!item.isDefaultItem)
+        {
+            if (items.Count >= space) 
+            {
+                Debug.Log("You don't have a empty space.");
+                return false;
+            }
+            
+            items.Add(item);
+            if(ItemisChangedCallback != null)ItemisChangedCallback.Invoke();  //trigered callback function for updating inventory gui.
+        }
+        return true;
     }
 
-    void Update() { }
-
-    void CellPickup() {
-        AudioSource.PlayClipAtPoint(cellPickupSound, transform.position);
-        currentCharge++;
-        UpdateChargeGUI();
+    public void remove(Item item)
+    {
+        items.Remove(item);
+        if (ItemisChangedCallback != null) ItemisChangedCallback.Invoke();
     }
 
-    void UpdateChargeGUI() {
-        activeHudCharge.texture = hudChargeGUIs[currentCharge];
-    }
 }
