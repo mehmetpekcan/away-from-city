@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6208fd85663217c4590efa346946cee1, type: 3}
   m_Name: test
   m_EditorClassIdentifier: 
-  name: Ahmet's
-  icon: {fileID: 0}
+  name: Axe
+  icon: {fileID: 21300000, guid: 719c2201c2f5f6c4aafffaeb5abdf5f9, type: 3}
   isDefaultItem: 0

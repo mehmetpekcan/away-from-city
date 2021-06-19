@@ -14,7 +14,7 @@ public class Inventory : MonoBehaviour {
 
 
     //creating call back method for listenening any changes for updateing gui;
-    public delegate void ItemisChanged();
+    public delegate void ItemisChanged(); //<===
     public ItemisChanged ItemisChangedCallback;
 
 
