@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6919b4aa0b6a0dd4f9b826019eb9a933, type: 3}
-  m_Name: Chest
+  m_Name: Platebody
   m_EditorClassIdentifier: 
-  name: Chest
+  name: Platebody
   icon: {fileID: 21300000, guid: a8f76e60d4a7246079042adfdad518bb, type: 3}
   isDefaultItem: 0
   equipSlot: 1
-  mesh: {fileID: 0}
-  armorModifier: 10
-  damageModifier: 0
+  mesh: {fileID: 137860983683025678, guid: 605c662279a464ffea62798a0fbc1314, type: 3}
+  coveredMeshRegions: 0100000002000000
+  armorModifier: 0
+  damageModifier: 3

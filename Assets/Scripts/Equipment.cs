@@ -6,7 +6,8 @@ using UnityEngine;
 public class Equipment : Item
 {
     public EquipmentSlot equipSlot;
-
+    public SkinnedMeshRenderer mesh;
+    public EquipmentMeshRegion[] coveredMeshRegions;
     public int armorModifier;
     public int damageModifier;
 
@@ -19,4 +20,5 @@ public class Equipment : Item
     }
 }
 
-public enum EquipmentSlot { Head, Chest, Legs, Weapon, Shield, Feet } 
+public enum EquipmentSlot { Head, Chest, Legs, Weapon, Shield, Feet }
+public enum EquipmentMeshRegion { Legs , Arms, Torso }
