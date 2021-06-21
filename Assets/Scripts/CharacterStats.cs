@@ -3,7 +3,7 @@ using UnityEngine;
 public class CharacterStats : MonoBehaviour {
     public int maxHealth = 100;
     public bool isDead;
-
+    public HealthBar healthBar;
     public int currentHealth {
         get;
         private set;
@@ -18,6 +18,7 @@ public class CharacterStats : MonoBehaviour {
 
     void Start() {
         isDead = false;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     void Update() {
@@ -31,7 +32,7 @@ public class CharacterStats : MonoBehaviour {
         damage = Mathf.Clamp(damage, 0, int.MaxValue);
 
         currentHealth -= damage;
-
+        healthBar.SetHealth(currentHealth);
         if (currentHealth <= 0 && !isDead) {
             isDead = true;
             Die();
